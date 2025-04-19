@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple DOM Manipulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            background-color: #f0f0f0;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+
+        li:hover {
+            background-color: #ddd;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>My List</h1>
+    <ul id="myList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+    <button id="addButton">Add Item</button>
+
+    <script>
+        document.getElementById('addButton').onclick = function () {
+            const li = document.createElement('li');
+            li.textContent = 'New Item';
+            li.onclick = function () { this.remove(); };
+            document.getElementById('myList').appendChild(li);
+        };
+    </script>
+
+</body>
+
+</html>
