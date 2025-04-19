@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple DOM Manipulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            background-color: #f0f0f0;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+
+        li:hover {
+            background-color: #ddd;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>My List</h1>
+    <ul id="myList">
+        <li class="item">Item 1</li>
+        <li class="item">Item 2</li>
+        <li class="item">Item 3</li>
+    </ul>
+    <button id="addButton">Add Item</button>
+
+    <script>
+        const myList = document.getElementById('myList');
+        const addButton = document.getElementById('addButton');
+
+        function addItem(text) {
+            const li = document.createElement('li');
+            li.textContent = text;
+            li.className = 'item';
+            li.addEventListener('click', () => li.remove());
+            myList.appendChild(li);
+        }
+
+        addButton.addEventListener('click', () => addItem('New Item'));
+
+        document.querySelectorAll('.item').forEach(item => {
+            item.addEventListener('click', () => item.remove());
+        });
+    </script>
+
+</body>
+
+</html>

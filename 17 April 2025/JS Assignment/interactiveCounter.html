@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Counter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .counter-container {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 200px;
+        }
+
+        .display {
+            margin: 20px 0;
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .buttons button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .buttons button:hover {
+            background-color: #45a049;
+        }
+
+        .buttons button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="counter-container">
+        <h1>Simple Counter</h1>
+        <div class="display">
+            <span id="counter">0</span>
+        </div>
+        <div class="buttons">
+            <button id="increment">Increment</button>
+            <button id="decrement">Decrement</button>
+        </div>
+    </div>
+
+    <script>
+        let counter = 0;
+        const counterDisplay = document.getElementById("counter");
+        const incrementButton = document.getElementById("increment");
+        const decrementButton = document.getElementById("decrement");
+
+        function updateDisplay() {
+            counterDisplay.textContent = counter;
+            decrementButton.disabled = counter === 0;
+        }
+
+        incrementButton.addEventListener("click", function () {
+            counter++;
+            updateDisplay();
+        });
+
+        decrementButton.addEventListener("click", function () {
+            if (counter > 0) {
+                counter--;
+                updateDisplay();
+            }
+        });
+
+        updateDisplay();
+    </script>
+</body>
+
+</html>
